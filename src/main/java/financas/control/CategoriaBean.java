@@ -19,9 +19,9 @@ public class CategoriaBean implements Serializable {
 	private List<Categoria> categorias;
 	private String consulta;
 	
-	public CategoriaBean() {		
+	public CategoriaBean()  {		
 		CategoriaRESTClient rest = new CategoriaRESTClient();
-		categorias = rest.findAll();		
+		categorias = rest.findAll();
 	}
 
 	public Categoria getCategoria() {
@@ -51,17 +51,17 @@ public class CategoriaBean implements Serializable {
 	public String pagPrincipal() {
 		CategoriaRESTClient rest = new CategoriaRESTClient();
 		categorias = rest.findAll();
-		return "/index";		
+		return "/protected/categoria?faces-redirect=true";		
 	}
 	
 	public String pagCategoria() {
 		this.categoria = new Categoria();
-		return "/pag_categoria";
+		return "/protected/pag_categoria?faces-redirect=true";
 	}
 	
 	public String pagCategoria(Categoria categoria) {
 		this.categoria = categoria;
-		return "/pag_categoria";
+		return "/protected/pag_categoria?faces-redirect=true";
 	}
 	
 	public String consultar() {

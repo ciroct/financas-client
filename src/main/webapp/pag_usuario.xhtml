@@ -4,28 +4,30 @@
       xmlns:h="http://xmlns.jcp.org/jsf/html">
 <h:head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-<title>Login</title>
+<title>Categoria</title>
 <h:outputStylesheet library="css" name="styles.css"/>
 </h:head>
 <h:body>
-	<h1>Login</h1>
-	<h:form>
+	<h1>Categoria</h1>
+	<h:form id="frm">
 		<h:panelGrid columns="3">
+			<h:outputLabel for="nome" value="Nome"/>
+			<h:inputText id="nome" value="#{usuarioBean.usuario.nome}"
+						 required="true"/>
+			<h:message for="nome" styleClass="erro"/>
+
 			<h:outputLabel for="email" value="E-mail"/>
 			<h:inputText id="email" value="#{usuarioBean.usuario.email}"
 						 required="true"/>
 			<h:message for="email" styleClass="erro"/>
+			
 			<h:outputLabel for="senha" value="Senha"/>
 			<h:inputSecret id="senha" value="#{usuarioBean.usuario.senha}"
-						 required="true"/>						 
+						 required="true"/>
 			<h:message for="senha" styleClass="erro"/>
-		</h:panelGrid>						
-		<h:commandButton value="Entrar" action="#{usuarioBean.autenticar}"/>
-		<h:commandLink value="Clique aqui se você ainda não está cadastrado"
-							action="/pag_usuario?faces-redirect=true" immediate="true"/>
-		<br/>
-		<h:outputText value="#{message}" styleClass="erro"/>		
-		<h:messages/>
+		</h:panelGrid>
+		<h:commandButton value="Cadastrar" action="#{usuarioBean.gravar}"/>
+		<h:commandButton value="Voltar" action="/index?faces-redirect=true" immediate="true"/>
 	</h:form>
 
 </h:body>
